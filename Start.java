@@ -20,9 +20,8 @@ public class Start {
         try (FileReader reader = new FileReader(file)) {
             Gson gson = new Gson();
             JsonObject jsonObject = gson.fromJson(reader, JsonObject.class);
-
+            
             String version = jsonObject.get("version").getAsString();
-            String mcp = jsonObject.get("mcp").getAsString();
             String username = jsonObject.get("username").getAsString();
             String accessToken = jsonObject.get("accessToken").getAsString();
             String uuid = jsonObject.get("uuid").getAsString();
@@ -31,7 +30,7 @@ public class Start {
             String userProperties = jsonObject.get("userProperties").toString();
 
             String[] finalArgs = {
-                    version, mcp,
+                    version, "mcp",
                     "--username", username,
                     "--accessToken", accessToken,
                     "--uuid", uuid,
@@ -39,7 +38,6 @@ public class Start {
                     "--assetIndex", assetIndex,
                     "--userProperties", userProperties
             };
-
             LaunchWrapper.main(concat(finalArgs,args));
         } catch (IOException e) {
             e.printStackTrace();
