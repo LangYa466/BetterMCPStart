@@ -28,8 +28,8 @@ public class Start {
             String assetIndex = jsonObject.get("assetIndex").getAsString();
             String userProperties = jsonObject.get("userProperties").toString();
 
-            String[] finalArgs = {
-                    "mcp",
+             String[] finalArgs = {
+                    "--version" , "mcp",
                     "--username", username,
                     "--accessToken", accessToken,
                     "--uuid", uuid,
