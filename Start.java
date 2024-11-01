@@ -21,7 +21,6 @@ public class Start {
             Gson gson = new Gson();
             JsonObject jsonObject = gson.fromJson(reader, JsonObject.class);
             
-            String version = jsonObject.get("version").getAsString();
             String username = jsonObject.get("username").getAsString();
             String accessToken = jsonObject.get("accessToken").getAsString();
             String uuid = jsonObject.get("uuid").getAsString();
@@ -30,7 +29,7 @@ public class Start {
             String userProperties = jsonObject.get("userProperties").toString();
 
             String[] finalArgs = {
-                    version, "mcp",
+                    "mcp",
                     "--username", username,
                     "--accessToken", accessToken,
                     "--uuid", uuid,
@@ -38,6 +37,7 @@ public class Start {
                     "--assetIndex", assetIndex,
                     "--userProperties", userProperties
             };
+            
             Main.main(concat(finalArgs,args));
         } catch (IOException e) {
             e.printStackTrace();
