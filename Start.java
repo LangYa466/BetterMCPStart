@@ -38,7 +38,7 @@ public class Start {
                     "--assetIndex", assetIndex,
                     "--userProperties", userProperties
             };
-            LaunchWrapper.main(concat(finalArgs,args));
+            Main.main(concat(finalArgs,args));
         } catch (IOException e) {
             e.printStackTrace();
         }
